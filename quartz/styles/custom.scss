@@ -1,3 +1,25 @@
+@use "./base.scss";
 @use "./variables.scss" as *;
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2") format("woff2");
+}
 
-// put your custom CSS here!
+/* 고려대 크림슨 (PANTONE 202C) - 라이트 모드 */
+:root,
+:root[saved-theme="light"] {
+  --secondary: #862633;
+  --tertiary: #A8424F;
+  --highlight: rgba(134, 38, 51, 0.10);
+}
+
+/* 다크 모드 - 어두운 배경에서 잘 보이게 밝힌 크림슨 */
+:root[saved-theme="dark"] {
+  --secondary: #D65A6A;
+  --tertiary: #E8808D;
+  --highlight: rgba(214, 90, 106, 0.15);
+}
+// (그 아래 원래 있던 내용들)
