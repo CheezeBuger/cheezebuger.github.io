@@ -43,7 +43,7 @@ configuration:
 plugins:
   - source:
       name: quartz-themes
-      repo: "https://github.com/saberzero1/quartz-themes.git"
+      repo: https://github.com/saberzero1/quartz-themes.git
       subdir: plugin
     enabled: true
     options:
@@ -231,11 +231,16 @@ plugins:
       position: beforeBody
       priority: 5
       condition: not-index
-  - source: "@quartz-community/comments"
-    enabled: false
+  - source: github:quartz-community/comments
+    enabled: true
     options:
       provider: giscus
-      options: {}
+      options:
+        repo: CheezeBuger/cheezebuger.github.io
+        repoId: CheezeBuger/cheezebuger.github.io
+        category: Announcements
+        categoryId: DIC_kwDOVmkBr84DKqhQ
+        lang: ko
     layout:
       position: afterBody
       priority: 10
@@ -286,6 +291,15 @@ plugins:
       darkMode: auto
       exportPadding: 20
     order: 50
+  - source: github:quartz-community/comments
+    enabled: false
+    options:
+      provider: giscus
+      options: {}
+    order: 50
+    layout:
+      position: afterBody
+      priority: 10
 layout:
   groups:
     toolbar:

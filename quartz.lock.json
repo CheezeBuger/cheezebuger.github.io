@@ -1,6 +1,12 @@
 {
   "version": "1.0.0",
   "plugins": {
+    "comments": {
+      "source": "github:quartz-community/comments",
+      "resolved": "https://github.com/quartz-community/comments.git",
+      "commit": "155bbaa937460da25b8bd3c30698abc096d7986e",
+      "installedAt": "2026-11-08T14:23:54.386Z"
+    },
     "quartz-themes": {
       "source": {
         "name": "quartz-themes",
