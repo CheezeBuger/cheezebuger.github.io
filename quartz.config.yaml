@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: 논문쓰는     치즈버거
+  pageTitle: 논문쓰는 치즈버거
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -172,6 +172,8 @@ plugins:
     enabled: true
   - source: "@quartz-community/explorer"
     enabled: true
+    options:
+      title: "학습 리스트"
     layout:
       position: left
       priority: 50

@@ -35,17 +35,32 @@ html[saved-theme="dark"] body {
   --link-color: #D65A6A !important;
 }
 
-/* Explorer 제목과 목록 항상 보이게 */
-.explorer,
-.explorer * {
-  visibility: visible !important;
-  opacity: 1 !important;
+/* Explorer: 항상 펼친 상태로 고정 */
+.explorer .explorer-content,
+.explorer.collapsed .explorer-content {
+  display: block !important;
+  height: auto !important;
+  max-height: none !important;
+  grid-template-rows: 1fr !important;
+  overflow: visible !important;
+  background: transparent !important;
 }
 
-/* 블로그 이름: 크기 + 한 줄 고정 */
-.page-title {
-  font-size: 1.6rem !important;
-  white-space: nowrap;
+/* Explorer 제목 누르기 기능 끄고 화살표 숨기기 */
+.explorer .title-button {
+  pointer-events: none;
+}
+.explorer .title-button svg,
+.explorer .fold {
+  display: none !important;
+}
+
+/* 블로그 이름: 한 줄 + 크기 */
+.page-title,
+.page-title a {
+  font-size: 1.5rem !important;
+  white-space: nowrap !important;
+  letter-spacing: -0.02em;
 }
 
 /* 글 제목 크기 */
@@ -53,7 +68,16 @@ html[saved-theme="dark"] body {
   font-size: 2rem !important;
 }
 
-/* 왼쪽 사이드바 배경 그림 */
+/* 왼쪽 사이드바 배경 그림 + 반투명 막 */
 .left.sidebar {
-  background: url("/static/icon.png") center / cover no-repeat;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.78)),
+    url("/static/icon.png") center / cover no-repeat !important;
+}
+
+/* 다크 모드에서는 어두운 막 */
+html[saved-theme="dark"] .left.sidebar {
+  background:
+    linear-gradient(rgba(20, 20, 20, 0.80), rgba(20, 20, 20, 0.80)),
+    url("/static/icon.png") center / cover no-repeat !important;
 }
