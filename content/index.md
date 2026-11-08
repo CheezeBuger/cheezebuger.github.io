@@ -1,8 +1,13 @@
 ---
-title: Welcome to Quartz
+publish: true
+title: 딥러닝 노트
+created: 2026-11-08T12:47:35.081Z
+modified: 2026-11-08T13:54:33.719Z
 ---
-test
 
+```base
+views:
+  - type: kanban
+    name: 뷰
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+```
