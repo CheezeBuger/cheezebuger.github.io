@@ -1,5 +1,7 @@
 @use "./base.scss";
 @use "./variables.scss" as *;
+
+/* 프리텐다드 글꼴 */
 @font-face {
   font-family: "Pretendard Variable";
   font-weight: 45 920;
@@ -10,16 +12,48 @@
 
 /* 고려대 크림슨 (PANTONE 202C) - 라이트 모드 */
 :root,
-:root[saved-theme="light"] {
-  --secondary: #862633;
-  --tertiary: #A8424F;
-  --highlight: rgba(134, 38, 51, 0.10);
+html[saved-theme="light"],
+html[saved-theme="light"] body {
+  --secondary: #862633 !important;
+  --tertiary: #A8424F !important;
+  --highlight: rgba(134, 38, 51, 0.10) !important;
+  --color-accent: #862633 !important;
+  --interactive-accent: #862633 !important;
+  --text-accent: #862633 !important;
+  --link-color: #862633 !important;
 }
 
-/* 다크 모드 - 어두운 배경에서 잘 보이게 밝힌 크림슨 */
-:root[saved-theme="dark"] {
-  --secondary: #D65A6A;
-  --tertiary: #E8808D;
-  --highlight: rgba(214, 90, 106, 0.15);
+/* 다크 모드 */
+html[saved-theme="dark"],
+html[saved-theme="dark"] body {
+  --secondary: #D65A6A !important;
+  --tertiary: #E8808D !important;
+  --highlight: rgba(214, 90, 106, 0.15) !important;
+  --color-accent: #D65A6A !important;
+  --interactive-accent: #D65A6A !important;
+  --text-accent: #D65A6A !important;
+  --link-color: #D65A6A !important;
 }
-// (그 아래 원래 있던 내용들)
+
+/* Explorer 제목과 목록 항상 보이게 */
+.explorer,
+.explorer * {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 블로그 이름: 크기 + 한 줄 고정 */
+.page-title {
+  font-size: 1.6rem !important;
+  white-space: nowrap;
+}
+
+/* 글 제목 크기 */
+.article-title {
+  font-size: 2rem !important;
+}
+
+/* 왼쪽 사이드바 배경 그림 */
+.left.sidebar {
+  background: url("/static/icon.png") center / cover no-repeat;
+}
