@@ -35,26 +35,6 @@ html[saved-theme="dark"] body {
   --link-color: #D65A6A !important;
 }
 
-/* Explorer: 항상 펼친 상태로 고정 */
-.explorer .explorer-content,
-.explorer.collapsed .explorer-content {
-  display: block !important;
-  height: auto !important;
-  max-height: none !important;
-  grid-template-rows: 1fr !important;
-  overflow: visible !important;
-  background: transparent !important;
-}
-
-/* Explorer 제목 누르기 기능 끄고 화살표 숨기기 */
-.explorer .title-button {
-  pointer-events: none;
-}
-.explorer .title-button svg,
-.explorer .fold {
-  display: none !important;
-}
-
 /* 블로그 이름: 한 줄 + 크기 */
 .page-title,
 .page-title a {
@@ -68,7 +48,7 @@ html[saved-theme="dark"] body {
   font-size: 2rem !important;
 }
 
-/* 왼쪽 사이드바 배경 그림 + 반투명 막 */
+/* 왼쪽 사이드바 배경 그림 + 반투명 막 (위는 연하게, 아래는 진하게) */
 .left.sidebar {
   background:
     linear-gradient(rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.78)),
@@ -80,4 +60,82 @@ html[saved-theme="dark"] .left.sidebar {
   background:
     linear-gradient(rgba(20, 20, 20, 0.80), rgba(20, 20, 20, 0.80)),
     url("/static/icon.png") center / cover no-repeat !important;
+}
+
+/* 넓은 화면에서만: 학습 리스트 설정 */
+@media (min-width: 801px) {
+  /* 항상 펼친 상태로 */
+  .explorer,
+  .explorer.collapsed {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .explorer.collapsed .explorer-content {
+    visibility: visible !important;
+    opacity: 1 !important;
+    grid-template-rows: 1fr !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .explorer.collapsed .explorer-ul {
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: none !important;
+  }
+
+  /* "학습 리스트" 제목과 삼각형 버튼 숨기기 */
+  .explorer .title-button.desktop-explorer {
+    display: none !important;
+  }
+
+  /* 반투명 블러 박스 (라이트 모드) */
+  .explorer .explorer-content,
+  .explorer.collapsed .explorer-content {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    padding: 0.5rem 0.75rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* 반투명 블러 박스 (다크 모드) */
+  html[saved-theme="dark"] .explorer .explorer-content,
+  html[saved-theme="dark"] .explorer.collapsed .explorer-content {
+    background: rgba(20, 20, 20, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+}
+
+/* 목록 아래쪽이 흐려지는 효과 끄기 (모든 화면) */
+.explorer .explorer-ul.overflow::after,
+.explorer .explorer-ul::after {
+  display: none !important;
+  content: none !important;
+}
+.explorer .explorer-ul {
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+/* 좁은 화면(☰ 메뉴): 진한 유리 효과 */
+@media (max-width: 800px) {
+  .explorer .explorer-content,
+  .explorer.collapsed .explorer-content {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    padding-top: 4rem !important;   /* ☰ 버튼과 안 겹치게 */
+  }
+
+  html[saved-theme="dark"] .explorer .explorer-content,
+  html[saved-theme="dark"] .explorer.collapsed .explorer-content {
+    background: rgba(20, 20, 20, 0.65) !important;
+  }
 }
