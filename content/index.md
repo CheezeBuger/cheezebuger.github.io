@@ -2,8 +2,8 @@
 publish: true
 title: 딥러닝 노트
 created: 2026-11-08T12:47:35.081Z
-modified: 2026-11-08T15:18:33.739Z
-published: 2026-11-08T15:18:33.739Z
+modified: 2026-11-08T16:02:16.117Z
+published: 2026-11-08T16:02:16.117Z
 ---
 
 ```base
@@ -12,7 +12,7 @@ views:
     name: 뷰
     filters:
       and:
-        - 역할 == ["blog"]
+        - 역할.contains("blog")
     groupBy:
       property: 역할
       direction: ASC
