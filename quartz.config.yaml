@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: 논문쓰는 치즈버거
+  pageTitle: 플랑크톤의 치즈버거
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
